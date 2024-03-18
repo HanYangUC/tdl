@@ -1,0 +1,28 @@
+<p>add-tdl works!</p>
+<form #form="ngForm" (ngSubmit)="onSubmit(todo, todoDesc)">
+    <!-- <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="formData.username" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="formData.password" required>
+    </div> -->
+
+    <div>
+        <label for="todo">todo:</label>
+        <input type="text" id="todo" name="todo" [(ngModel)]="formData.todo" required>
+    </div>
+
+    <div>
+        <label for="todoDesc">todoDesc:</label>
+        <input type="text" id="todoDesc" name="todoDesc" [(ngModel)]="formData.todoDesc" required>
+    </div>
+
+    <div>
+        <label for="status">status:</label>
+        <input type="checkbox" id="status" name="status" [(ngModel)]="formData.status" >
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
