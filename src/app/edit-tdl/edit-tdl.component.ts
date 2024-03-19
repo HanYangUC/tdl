@@ -42,7 +42,6 @@ export class EditTdlComponent implements OnInit {
 
 
   onSubmit(): void {
-    console.log("huh?")
     if (!this.formData.todo || !this.formData.todoDesc) {
       this.openSnackBar("Cannot be blank!");
     } else {
