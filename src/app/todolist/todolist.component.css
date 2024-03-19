@@ -1,5 +1,24 @@
+table {
+    /* width: 7%; */
+    /* box-shadow: 1px 1px 1px #999; */
+    margin-top: 45%;
+    box-shadow: 0 0 10px #999; 
+    width:100%;
+    /* box-shadow: 1px 1px 1px #999; */
+  }
 .tdl-component{
-    border: 100px;
-    border-radius: 200px;
-    background-color: beige;
+    width:7%;
+    
 }
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+

@@ -1,8 +1,18 @@
-.example-icon {
-    padding: 0 14px;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
+
+/* .navbar {
+  background-color: blue;
+} */
+
+
+
+button{
+  margin:1%;
+  margin-top: 2%;
+  position: relative;
+}
+.example-container {
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid #555;
+}

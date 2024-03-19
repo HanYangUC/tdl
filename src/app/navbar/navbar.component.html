@@ -1,8 +1,13 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
+<!-- <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+  <mat-tab (click)="goToList()" label="List" >
     <span (click)="goToList()">List</span>
-  </mat-toolbar-row>
-  <mat-toolbar-row>
+  </mat-tab>
+  <mat-tab (onClick)="goToAdd()" label="Add">
     <span (click)="goToAdd()">Add</span>
-  </mat-toolbar-row>
-</mat-toolbar>
+  </mat-tab>
+  <p>asddddddddddddddddd</p>
+</mat-tab-group> -->
+
+
+<button mat-raised-button color="primary" (click)="goToList()">List</button>
+<button mat-raised-button color="primary" (click)="goToAdd()">Add Task</button>

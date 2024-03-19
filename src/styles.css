@@ -1,43 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-.edit-form {
-    border-radius: 20px;
-    border-style: dashed;
-    background-color: aquamarine;
-    /* top: 50%;
-    left: 50%; */
-
-    /* transform: translate(-50%, -50%); */
-}
-
 body {
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width:100%;
 }
 
-table {
-    width:100%;
-}
 
-.tdl-component {
-    width:50%;
-}
-/* form {
-    display: inline-block;
-}
 
-label {
-    left:auto;
-} */
-
-.form-container {
-    justify-content: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    /* vh stands for viewport height */
-}
-
-/* form {
-    width: 50%; 
-  } 
-  */

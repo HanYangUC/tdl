@@ -1,18 +1,13 @@
-<div class="edit-form center" *ngIf="todo">
-    <h2>Edit Task</h2>
-    <form class="form">
-      <div>
-        <label for="todo">Task Name:</label>
-        <input type="text" id="todo" [(ngModel)]="todo.todo" name="todo">
-      </div>
-      <div>
-        <label for="todoDesc">Task Description:</label>
-        <input type="text" id="todoDesc" [(ngModel)]="todo.todoDesc" name="todoDesc">
-      </div>
-      <div>
-        <label for="status">Task completed?:</label>
-        <input type="checkbox" id="status" [(ngModel)]="todo.status" name="status">
-      </div>
-      <button (click)="onSubmit()" type="submit">Update</button>
-    </form>
-  </div>
+<h2>Edit Task</h2>
+<form>
+  <mat-form-field>
+    <mat-label>Task Name</mat-label>
+    <input [(ngModel)]="formData.todo" id="todos" name="todos" matInput placeholder="{{formData.todo}}">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description:</mat-label>
+    <input [(ngModel)]="formData.todoDesc" id="todoDescs" name="todoDesc" matInput placeholder="{{formData.todoDesc}}">
+  </mat-form-field>
+  <mat-checkbox [(ngModel)]="formData.status" [checked]="formData.status" id="status" name="status">{{formData.status ? 'Completed' : 'Not completed'}}</mat-checkbox>
+  <button style="display: flex;" mat-raised-button (click)="onSubmit()" type="submit">Update</button>
+</form>

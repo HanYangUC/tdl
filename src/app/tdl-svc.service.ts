@@ -25,4 +25,8 @@ export class TdlSvcService {
   updateTodo(id: string, todo: any): Observable<any> {
     return this.http.put<any>('http://127.0.0.1:8080/todo/update/' + id, todo)
   }
+
+  deleteTodo(id: string): Observable<any> {
+    return this.http.delete<any>('http://127.0.0.1:8080/todo/delete/' + id)
+  }
 }
