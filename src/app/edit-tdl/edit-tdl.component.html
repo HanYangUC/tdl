@@ -1,13 +1,16 @@
 <h2>Edit Task</h2>
-<form>
+<form (ngSubmit)="onSubmit()" #todoForm="ngForm">
   <mat-form-field>
     <mat-label>Task Name</mat-label>
     <input [(ngModel)]="formData.todo" id="todos" name="todos" matInput placeholder="{{formData.todo}}">
   </mat-form-field>
+  <br>
   <mat-form-field>
     <mat-label>Description:</mat-label>
     <input [(ngModel)]="formData.todoDesc" id="todoDescs" name="todoDesc" matInput placeholder="{{formData.todoDesc}}">
   </mat-form-field>
-  <mat-checkbox [(ngModel)]="formData.status" [checked]="formData.status" id="status" name="status">{{formData.status ? 'Completed' : 'Not completed'}}</mat-checkbox>
-  <button style="display: flex;" mat-raised-button (click)="onSubmit()" type="submit">Update</button>
+  <br>
+  <mat-checkbox [(ngModel)]="formData.status" [checked]="formData.status" id="status" name="status">{{formData.status ?
+    'Done' : 'Pending'}}</mat-checkbox>
+  <button style="display: flex;" mat-raised-button type="submit">Update</button>
 </form>

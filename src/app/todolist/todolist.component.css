@@ -1,24 +1,25 @@
 table {
-    /* width: 7%; */
-    /* box-shadow: 1px 1px 1px #999; */
-    margin-top: 45%;
-    box-shadow: 0 0 10px #999; 
-    width:100%;
-    /* box-shadow: 1px 1px 1px #999; */
-  }
-.tdl-component{
-    width:7%;
-    
+  margin-top: 45%;
+  box-shadow: 0 0 10px #999;
+  width: 100%;
+}
+
+.tdl-component {
+  width: 7%;
 }
 
 .mat-mdc-row .mat-mdc-cell {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
+  border-bottom: 1px solid black;
+  ;
+  border-top: 1px solid black;
   cursor: pointer;
 }
 
 .mat-mdc-row:hover .mat-mdc-cell {
-  border-color: currentColor;
+  background-color: rgba(103, 58, 183, 0.2);
 }
 
 
+.tdl-component .header {
+  border-right: 1px solid black;
+}

@@ -6,10 +6,12 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-edit-tdl',
   standalone: true,
@@ -28,7 +30,7 @@ export class EditTdlComponent implements OnInit {
     todoDesc: '',
     status: true,
   };
-  constructor(private route: ActivatedRoute, private TdlSvcService: TdlSvcService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private TdlSvcService: TdlSvcService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -40,22 +42,24 @@ export class EditTdlComponent implements OnInit {
 
 
   onSubmit(): void {
-    this.TdlSvcService.updateTodo(this.id, this.todo).subscribe(response => {
-      // console.log(this.todo)
-      // console.log(response);
-    })
-    setTimeout(() => {
-      this.goToList();
-    }, 500);
-    
+    console.log("huh?")
+    if (!this.formData.todo || !this.formData.todoDesc) {
+      this.openSnackBar("Cannot be blank!");
+    } else {
+      this.openSnackBar("Saved!");
+      this.TdlSvcService.updateTodo(this.id, this.formData).subscribe(response => {
+      })
+      setTimeout(() => {
+        this.goToList();
+      }, 500);
+    }
   }
 
   goToList($myParam: string = ''): void {
     const navigationDetails: string[] = ['/list'];
-    if($myParam.length) {
+    if ($myParam.length) {
       navigationDetails.push($myParam);
     }
-    // console.log(navigationDetails);
     this.router.navigate(navigationDetails);
   }
 
@@ -63,7 +67,12 @@ export class EditTdlComponent implements OnInit {
     this.TdlSvcService.getTodo(id).subscribe(data => {
       this.todo = data;
       this.formData = data;
-      // console.log(this.todo);
     })
+  }
+
+  openSnackBar(message: string = '') {
+    this._snackBar.open(message, "", {
+      duration: 2000
+    });
   }
 }

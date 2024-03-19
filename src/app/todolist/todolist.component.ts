@@ -5,18 +5,20 @@ import { TdlSvcService } from '../tdl-svc.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-todolist',
   standalone: true,
-  imports: [CommonModule, MatTableModule],
+  imports: [CommonModule, MatTableModule, MatIconModule],
   templateUrl: './todolist.component.html',
   styleUrl: './todolist.component.css'
 })
 export class TodolistComponent implements OnInit {
   todos: any;
-  displayedColumns: string[] = ['task', 'desc', 'status', 'edit','delete'];
-  constructor(private TdlSvcService: TdlSvcService, private router: Router) { }
+  displayedColumns: string[] = ['task', 'desc', 'status', 'edit', 'delete'];
+  constructor(private TdlSvcService: TdlSvcService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.listAll();
@@ -38,10 +40,17 @@ export class TodolistComponent implements OnInit {
     this.router.navigate(navigationDetails);
   }
 
-  delete(id: string = ''):void{
-    this.TdlSvcService.deleteTodo(id).subscribe(      )
-      setTimeout(() => {
-        this.ngOnInit();
-      }, 100);
+  delete(id: string = ''): void {
+    this.TdlSvcService.deleteTodo(id).subscribe()
+    this.openSnackBar("Deleted!")
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 100);
+  }
+
+  openSnackBar(message: string = '') {
+    this._snackBar.open(message, "", {
+      duration: 2000
+    });
   }
 }

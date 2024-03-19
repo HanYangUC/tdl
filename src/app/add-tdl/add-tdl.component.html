@@ -1,16 +1,14 @@
 <h2>Add Task</h2>
-<form>
+<form (ngSubmit)="onSubmit()" #todoForm="ngForm">
   <mat-form-field>
     <mat-label>Task name:</mat-label>
-    <input [(ngModel)]="formData.todo" id="todo" name="todo" matInput placeholder="Ex. Buy groceries">
+    <input [(ngModel)]="formData.todo" id="todo" name="todo" matInput placeholder="Ex. Buy groceries" required>
   </mat-form-field>
-
+  <br>
   <mat-form-field>
     <mat-label>Description:</mat-label>
-    <input [(ngModel)]="formData.todoDesc" id="todoDesc" name="todoDesc" matInput placeholder="Ex. Grocery lists">
+    <input [(ngModel)]="formData.todoDesc" id="todoDesc" name="todoDesc" matInput placeholder="Ex. Grocery lists"
+      required>
   </mat-form-field>
-  <button style="display: flex;" mat-raised-button (click)="onSubmit(todo, todoDesc)" type="button">Submit</button>
-
-
-
+  <button style="display: flex;" mat-raised-button>Submit</button>
 </form>
